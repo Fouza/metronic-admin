@@ -1,0 +1,70 @@
+.account {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+.detail_container {
+  display: none;
+}
+
+tr:has(input[name="detail"]:checked) ~ tr .vertical_row {
+  display: block !important;
+}
+
+table:has(input[name="detail"]:checked) thead,
+table:has(input[name="detail"]:checked)
+  tr:not(:has(input[name="detail"]:checked))
+  td:not(:nth-of-type(2)),
+table:has(input[name="detail"]:checked) tr td .label,
+table:has(input[name="detail"]:checked) td:not(:nth-of-type(2)) {
+  display: none;
+}
+
+/* td:has(input[name="detail"]:checked) span */
+
+table:has(input[name="detail"]:checked)
+  td:has(input[name="detail"]:checked)
+  span,
+table:has(input[name="detail"]:checked)
+  td:not(:has(input[name="detail"]:checked))
+  .vertical_row {
+  display: block !important;
+}
+
+.detail_screen {
+  visibility: hidden;
+  width: 0;
+  height: 100%;
+  opacity: 0;
+  transition: width 0.5s ease;
+  > div {
+    border-radius: 1.25rem;
+  }
+}
+
+.card {
+  transition: width 0.5s ease;
+}
+
+.card:has(.input[name="detail"]:checked) {
+  width: 30%;
+}
+.card:has(.input[name="detail"]:checked) ~ .detail_screen {
+  width: 70%;
+  opacity: 1;
+  visibility: visible;
+}
+
+.vertical_row {
+  display: none;
+}
